@@ -16,13 +16,18 @@ module uart_decoder
    initial begin
 
       @(posedge rx);
+      //$display("%0t First trig", $time);
+      
       t = 1000000000/baud_rate;
 
       forever begin
 	 @(negedge rx);
+	 //$display("%0t First bit", $time);
 	 #(t/2) ch = 0;
-	 for (i=0;i<8;i=i+1)
+	 for (i=0;i<8;i=i+1) begin
 	   #t ch[i] = rx;
+	    //$display("%0t latch %d", $time, i);
+	 end
 	 $write("%c",ch);
 	 $fflush;
       end
