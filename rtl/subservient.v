@@ -25,7 +25,7 @@ module subservient
    output wire 		o_sram_ren,
 
    //Debug interface
-   input wire 		i_debug_mode,
+   //input wire 		i_debug_mode,
    input wire [31:0] 	i_wb_dbg_adr,
    input wire [31:0] 	i_wb_dbg_dat,
    input wire [3:0] 	i_wb_dbg_sel,
